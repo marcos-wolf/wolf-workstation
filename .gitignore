@@ -1,0 +1,48 @@
+# Secrets and credentials
+.env
+.env.*
+!.env.example
+
+*.pem
+*.key
+*.p12
+*.pfx
+
+# SSH private keys
+.ssh/
+id_ed25519
+id_ed25519.pub
+
+# Cloud credentials
+.aws/
+.azure/
+.gcloud/
+
+# Local configuration
+*.local
+*.secret
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/settings.json
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Node
+node_modules/
+
+# Build artifacts
+build/
+dist/
+out/
+
+# Logs
+*.log
