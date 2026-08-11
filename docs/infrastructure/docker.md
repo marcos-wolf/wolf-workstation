@@ -152,6 +152,97 @@ docker-compose
 
 Compose will be used to define reproducible local infrastructure such as databases, caches and development services.
 
+## PostgreSQL Compose Test
+
+A PostgreSQL test environment was created to validate Docker Compose, container lifecycle management, healthchecks and persistent volumes.
+
+The test project is located at:
+
+```text
+~/Projects/docker/wolf-infra-test
+```
+
+Its Compose configuration contains:
+
+```text
+PostgreSQL
+Docker Compose
+Persistent Docker volume
+PostgreSQL healthcheck
+Local port 5432
+```
+
+The environment can be started with:
+
+```bash
+cd ~/Projects/docker/wolf-infra-test
+docker compose up -d
+```
+
+Check its status with:
+
+```bash
+docker compose ps
+```
+
+The PostgreSQL service should eventually report a healthy status.
+
+The database can be accessed with:
+
+```bash
+docker exec -it wolf-postgres psql -U wolf -d wolfdb
+```
+
+The test environment was validated by creating a PostgreSQL table and inserting data.
+
+The container was then removed with:
+
+```bash
+docker compose down
+```
+
+The environment was recreated with:
+
+```bash
+docker compose up -d
+```
+
+The previously created database data remained available.
+
+This confirms that the data is stored in a Docker volume rather than only in the container's writable layer.
+
+Do not use:
+
+```bash
+docker compose down -v
+```
+
+when persistent data must be preserved, because the `-v` option removes the project's volumes.
+
+## Persistence Model
+
+The test demonstrates the following model:
+
+```text
+Docker Compose
+│
+├── PostgreSQL container
+│   └── can be destroyed and recreated
+│
+└── Docker volume
+    └── persists database data
+```
+
+Containers are treated as ephemeral compute environments, while persistent application data is stored separately in volumes.
+
+## Security Note
+
+The PostgreSQL password used in the local test environment is a development-only credential.
+
+Real credentials must not be committed to Git.
+
+Future projects should supply sensitive configuration through environment variables, `.env` files excluded from Git, or a dedicated secrets-management solution.
+
 ## Design Principle
 
 Docker is used primarily for development infrastructure rather than replacing the host operating system.
