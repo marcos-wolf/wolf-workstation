@@ -18,6 +18,21 @@ The official repository signing key is stored at:
 /etc/apt/keyrings/docker.asc
 ```
 
+### Reproducible bootstrap
+
+The repository includes an opt-in installer that follows Docker's official APT
+repository method:
+
+```bash
+./scripts/bootstrap-docker.sh
+./scripts/bootstrap-docker.sh --apply
+```
+
+The first command is a preview. The second configures Docker's signed APT
+repository for the detected Ubuntu release, installs the Docker packages, and
+starts the service. It intentionally does not add any user to the `docker`
+group.
+
 ## Installed Components
 
 The workstation uses the following Docker components:

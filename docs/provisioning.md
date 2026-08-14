@@ -52,4 +52,5 @@ The current source choices and installed versions are recorded in
    runtimes without requiring administrator access.
 5. Run the opt-in system-wide bootstraps, starting with
    `./scripts/bootstrap-github-cli.sh`.
+   Use `./scripts/bootstrap-docker.sh` for Docker Engine.
 6. Run `./scripts/system-check.sh` and the project validation commands.
