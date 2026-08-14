@@ -14,6 +14,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Validate shell scripts
+        run: |
+          for script in scripts/*.sh; do
+            bash -n "$script"
+          done
+
+      - name: Validate dotfiles installer
+        run: |
+          ./scripts/install-dotfiles.sh
+          cp "$HOME/.bashrc" /tmp/bashrc.after-first-install
+
+          ./scripts/install-dotfiles.sh
+          cmp -s "$HOME/.bashrc" /tmp/bashrc.after-first-install
+
+          test -f "$HOME/.config/wolf-workstation/bashrc"
+          grep -Fqx "# Wolf Workstation" "$HOME/.bashrc"
+
       - name: Verify repository structure
         run: |
           test -f README.md
