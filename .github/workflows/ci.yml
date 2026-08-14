@@ -21,6 +21,7 @@ jobs:
           test -f docs/infrastructure/docker.md
           test -f docs/infrastructure/aws-cli.md
           test -f docs/provisioning.md
+          test -f docs/external-tools.md
           test -f config/apt-packages.txt
           test -x scripts/bootstrap-core.sh
 

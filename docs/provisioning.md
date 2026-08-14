@@ -40,6 +40,9 @@ Their exact setup should be recorded before an automated installer is added.
 Credentials, SSH keys and cloud configuration remain machine-specific and are
 never provisioned by this repository.
 
+The current source choices and installed versions are recorded in
+[`docs/external-tools.md`](external-tools.md).
+
 ## Rebuild order
 
 1. Install Ubuntu and apply system updates.
