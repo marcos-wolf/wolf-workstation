@@ -28,6 +28,7 @@ jobs:
           test -x scripts/bootstrap-github-cli.sh
           test -x scripts/bootstrap-user-tools.sh
           test -x scripts/bootstrap-docker.sh
+          test -x scripts/bootstrap-vscode.sh
 
       - name: Validate provisioning script
         run: |
@@ -39,6 +40,8 @@ jobs:
           ./scripts/bootstrap-user-tools.sh
           bash -n scripts/bootstrap-docker.sh
           ./scripts/bootstrap-docker.sh
+          bash -n scripts/bootstrap-vscode.sh
+          ./scripts/bootstrap-vscode.sh
 
       - name: Verify Docker documentation
         run: |

@@ -53,4 +53,5 @@ The current source choices and installed versions are recorded in
 5. Run the opt-in system-wide bootstraps, starting with
    `./scripts/bootstrap-github-cli.sh`.
    Use `./scripts/bootstrap-docker.sh` for Docker Engine.
+   Use `./scripts/bootstrap-vscode.sh` for Visual Studio Code.
 6. Run `./scripts/system-check.sh` and the project validation commands.

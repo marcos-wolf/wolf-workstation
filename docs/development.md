@@ -8,6 +8,19 @@ Installation source:
 
 - Microsoft APT repository
 
+### Reproducible bootstrap
+
+The repository includes an opt-in installer for the official Microsoft APT
+repository and the stable `code` package:
+
+```bash
+./scripts/bootstrap-vscode.sh
+./scripts/bootstrap-vscode.sh --apply
+```
+
+The preview makes no changes. The installation does not install extensions,
+sign in to any service, or modify editor preferences.
+
 ## Version Control
 
 - Git
