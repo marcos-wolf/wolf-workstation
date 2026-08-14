@@ -156,10 +156,10 @@ Compose will be used to define reproducible local infrastructure such as databas
 
 A PostgreSQL test environment was created to validate Docker Compose, container lifecycle management, healthchecks and persistent volumes.
 
-The test project is located at:
+The test project is located in this repository at:
 
 ```text
-~/Projects/docker/wolf-infra-test
+~/Projects/wolf-workstation/projects/docker/wolf-infra-test
 ```
 
 Its Compose configuration contains:
@@ -175,7 +175,7 @@ Local port 5432
 The environment can be started with:
 
 ```bash
-cd ~/Projects/docker/wolf-infra-test
+cd ~/Projects/wolf-workstation/projects/docker/wolf-infra-test
 docker compose up -d
 ```
 

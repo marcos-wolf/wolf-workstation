@@ -21,13 +21,13 @@ Current workstation version:
 
 ## Project structure
 
-Node.js projects are stored under:
+Node.js validation projects are stored under:
 
-~/Projects/node/
+~/Projects/wolf-workstation/projects/node/
 
 Example:
 
-~/Projects/node/wolf-node-test/
+~/Projects/wolf-workstation/projects/node/wolf-node-test/
 
 ## Package management
 
