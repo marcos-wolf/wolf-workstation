@@ -31,6 +31,27 @@ jobs:
           test -f "$HOME/.config/wolf-workstation/bashrc"
           grep -Fqx "# Wolf Workstation" "$HOME/.bashrc"
 
+      - name: Validate user data backup script
+        run: |
+          bash -n scripts/backup-user-data.sh
+
+          ./scripts/backup-user-data.sh --help
+
+          mkdir -p /tmp/wolf-backup-test
+
+          ./scripts/backup-user-data.sh --dry-run /tmp/wolf-backup-test
+
+          test -z "$(find /tmp/wolf-backup-test -mindepth 1 -print -quit)"
+
+          ./scripts/backup-user-data.sh /tmp/wolf-backup-test
+
+          test -d /tmp/wolf-backup-test/Documents
+          test -d /tmp/wolf-backup-test/Pictures
+          test -d /tmp/wolf-backup-test/Music
+          test -d /tmp/wolf-backup-test/Videos
+
+          ./scripts/backup-user-data.sh /tmp/wolf-backup-test
+
       - name: Verify repository structure
         run: |
           test -f README.md
