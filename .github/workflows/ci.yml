@@ -37,6 +37,15 @@ jobs:
 
           ./scripts/backup-user-data.sh --help
 
+          mkdir -p \
+            "$HOME/Documents" \
+            "$HOME/Pictures" \
+            "$HOME/Music" \
+            "$HOME/Videos"
+
+          echo "backup test" > "$HOME/Documents/test.txt"
+          echo "picture test" > "$HOME/Pictures/test.txt"
+
           mkdir -p /tmp/wolf-backup-test
 
           ./scripts/backup-user-data.sh --dry-run /tmp/wolf-backup-test
@@ -50,7 +59,13 @@ jobs:
           test -d /tmp/wolf-backup-test/Music
           test -d /tmp/wolf-backup-test/Videos
 
+          test -f /tmp/wolf-backup-test/Documents/test.txt
+          test -f /tmp/wolf-backup-test/Pictures/test.txt
+
           ./scripts/backup-user-data.sh /tmp/wolf-backup-test
+
+          test -f /tmp/wolf-backup-test/Documents/test.txt
+          test -f /tmp/wolf-backup-test/Pictures/test.txt
 
       - name: Verify repository structure
         run: |
