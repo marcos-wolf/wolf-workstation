@@ -20,6 +20,14 @@ jobs:
           test -f docs/software.md
           test -f docs/infrastructure/docker.md
           test -f docs/infrastructure/aws-cli.md
+          test -f docs/provisioning.md
+          test -f config/apt-packages.txt
+          test -x scripts/bootstrap-core.sh
+
+      - name: Validate provisioning script
+        run: |
+          bash -n scripts/bootstrap-core.sh
+          ./scripts/bootstrap-core.sh
 
       - name: Verify Docker documentation
         run: |

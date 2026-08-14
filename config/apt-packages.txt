@@ -1,0 +1,24 @@
+# Packages provided by Ubuntu's configured APT repositories.
+# One package per line. Third-party tools are intentionally documented separately.
+build-essential
+clang
+cmake
+ninja-build
+gdb
+valgrind
+clangd
+pkg-config
+git
+curl
+wget
+jq
+unzip
+zip
+p7zip-full
+tree
+ripgrep
+fd-find
+fzf
+btop
+fwupd
+flatpak
