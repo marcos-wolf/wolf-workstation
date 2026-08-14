@@ -106,7 +106,7 @@ jobs:
       - name: Run Biome
         run: pnpm run check
 
-      - name: Build TypeScript
+      - name: Build
         run: pnpm run build
 
       - name: Run tests
@@ -123,13 +123,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Configure CMake
-        run: cmake -S . -B build
+      - name: Install CMake and Ninja
+        run: sudo apt-get update && sudo apt-get install -y cmake ninja-build
 
-      - name: Build project
-        run: cmake --build build --parallel
+      - name: Configure
+        run: cmake -S . -B build -G Ninja
 
-      - name: Run executable
+      - name: Build
+        run: cmake --build build
+
+      - name: Run
         run: ./build/wolf-c-test
 
   docker:
@@ -143,5 +146,28 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Validate Docker Compose configuration
+      - name: Validate Compose configuration
         run: docker compose config
+
+      - name: Start services
+        run: docker compose up -d
+
+      - name: Check service health
+        run: |
+          for i in {1..12}; do
+            status="$(docker compose ps --format '{{.Status}}')"
+            echo "$status"
+
+            if echo "$status" | grep -q "healthy"; then
+              exit 0
+            fi
+
+            sleep 5
+          done
+
+          docker compose ps
+          exit 1
+
+      - name: Stop services
+        if: always()
+        run: docker compose down
