@@ -23,8 +23,10 @@ jobs:
           test -f docs/provisioning.md
           test -f docs/external-tools.md
           test -f config/apt-packages.txt
+          test -f config/user-tools.env
           test -x scripts/bootstrap-core.sh
           test -x scripts/bootstrap-github-cli.sh
+          test -x scripts/bootstrap-user-tools.sh
 
       - name: Validate provisioning script
         run: |
@@ -32,6 +34,8 @@ jobs:
           ./scripts/bootstrap-core.sh
           bash -n scripts/bootstrap-github-cli.sh
           ./scripts/bootstrap-github-cli.sh
+          bash -n scripts/bootstrap-user-tools.sh
+          ./scripts/bootstrap-user-tools.sh
 
       - name: Verify Docker documentation
         run: |

@@ -29,6 +29,19 @@ mise install
 This installs the Node.js and pnpm versions declared by the repository without
 putting them under APT control.
 
+The reproducible user-scoped bootstrap is available as a preview or an explicit
+installation:
+
+```bash
+./scripts/bootstrap-user-tools.sh
+./scripts/bootstrap-user-tools.sh --apply
+```
+
+Versions of mise and uv are pinned in `config/user-tools.env`. The script
+downloads each official installer to a temporary file before it runs it, never
+uses `sudo`, and leaves uv shell-profile changes disabled because
+`~/.local/bin` is already part of the workstation login path.
+
 ## System-wide tools
 
 | Tool | Official source | Current workstation version |

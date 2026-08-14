@@ -48,6 +48,8 @@ The current source choices and installed versions are recorded in
 1. Install Ubuntu and apply system updates.
 2. Clone this repository.
 3. Review and run the core bootstrap.
-4. Run the opt-in external-tool bootstraps, starting with
+4. Run `./scripts/bootstrap-user-tools.sh` to install mise, uv and the declared
+   runtimes without requiring administrator access.
+5. Run the opt-in system-wide bootstraps, starting with
    `./scripts/bootstrap-github-cli.sh`.
-5. Run `./scripts/system-check.sh` and the project validation commands.
+6. Run `./scripts/system-check.sh` and the project validation commands.
