@@ -48,5 +48,6 @@ The current source choices and installed versions are recorded in
 1. Install Ubuntu and apply system updates.
 2. Clone this repository.
 3. Review and run the core bootstrap.
-4. Configure the separate software sources above.
+4. Run the opt-in external-tool bootstraps, starting with
+   `./scripts/bootstrap-github-cli.sh`.
 5. Run `./scripts/system-check.sh` and the project validation commands.

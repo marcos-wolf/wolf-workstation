@@ -47,6 +47,17 @@ community Ubuntu package line. A future bootstrap step should migrate `gh` to
 that repository; authentication remains a separate manual action with
 `gh auth login`.
 
+The repository bootstrap is available now and is opt-in:
+
+```bash
+./scripts/bootstrap-github-cli.sh
+./scripts/bootstrap-github-cli.sh --apply
+```
+
+The first command is a preview. The second downloads GitHub's signing key,
+adds its signed APT repository, and installs or updates `gh`. It does not run
+`gh auth login` or write authentication tokens.
+
 ## Official references
 
 - [mise installation](https://mise.jdx.dev/installing-mise.html)
