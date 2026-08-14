@@ -34,7 +34,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: python/wolf-python-test
+        working-directory: projects/python/wolf-python-test
 
     steps:
       - name: Checkout repository
