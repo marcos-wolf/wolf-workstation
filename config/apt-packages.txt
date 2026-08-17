@@ -14,7 +14,7 @@ wget
 jq
 unzip
 zip
-p7zip-full
+7zip
 tree
 ripgrep
 fd-find
