@@ -127,6 +127,9 @@ jobs:
       - name: Run Ruff
         run: uv run ruff check .
 
+      - name: Check Ruff formatting
+        run: uv run ruff format --check .
+
       - name: Run tests
         run: uv run pytest
 
