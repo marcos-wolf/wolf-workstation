@@ -51,8 +51,10 @@ key_file="$(mktemp)"
 keyring_file="$(mktemp)"
 trap 'rm -f "${key_file}" "${keyring_file}"' EXIT
 
+echo "Removing legacy Visual Studio Code APT configuration..."
+sudo rm -f /etc/apt/sources.list.d/vscode.list
+
 echo "Installing Visual Studio Code repository prerequisites..."
-sudo apt-get update
 sudo apt-get install --yes curl gpg
 
 echo "Downloading Microsoft's signing key..."
