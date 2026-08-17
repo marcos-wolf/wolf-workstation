@@ -115,12 +115,16 @@ for source in "${SOURCE_DIRECTORIES[@]}"; do
     directory_name="$(basename "$source")"
     target="$DESTINATION/$directory_name"
 
-    mkdir -p "$target"
-
     echo "Backing up: $source"
     echo "        to: $target"
 
-    rsync "${RSYNC_OPTIONS[@]}" "$source/" "$target/"
+    if [[ "$DRY_RUN" == true ]]; then
+        echo "DRY RUN: would run rsync from $source/ to $target/"
+    else
+        mkdir -p "$target"
+        rsync "${RSYNC_OPTIONS[@]}" "$source/" "$target/"
+    fi
+
     echo
 done
 
