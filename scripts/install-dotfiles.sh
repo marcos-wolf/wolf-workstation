@@ -2,8 +2,12 @@
 
 set -euo pipefail
 
-readonly SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
-readonly REPOSITORY_ROOT="$(cd -- "${SCRIPT_DIR}/.." && pwd)"
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+readonly SCRIPT_DIR
+
+REPOSITORY_ROOT="$(cd -- "${SCRIPT_DIR}/.." && pwd)"
+readonly REPOSITORY_ROOT
+
 readonly SOURCE="${REPOSITORY_ROOT}/dotfiles/bash/wolf-workstation.bash"
 readonly TARGET_DIR="${HOME}/.config/wolf-workstation"
 readonly TARGET="${TARGET_DIR}/bashrc"

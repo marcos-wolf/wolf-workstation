@@ -33,7 +33,13 @@ Configuration, scripts and documentation should be version controlled whenever p
 
 ## Status
 
-Work in progress.
+Core workstation provisioning and validation are implemented.
+
+The repository provides reproducible provisioning for the Ubuntu package
+baseline, user-scoped development tools, Docker, Visual Studio Code and
+GitHub CLI, together with documentation, CI validation and user-data backup.
+
+A complete clean-system recovery test remains pending.
 
 ## Provisioning
 

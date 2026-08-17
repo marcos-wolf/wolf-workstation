@@ -5,8 +5,12 @@
 
 set -euo pipefail
 
-readonly SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
-readonly REPOSITORY_ROOT="$(cd -- "${SCRIPT_DIR}/.." && pwd)"
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+readonly SCRIPT_DIR
+
+REPOSITORY_ROOT="$(cd -- "${SCRIPT_DIR}/.." && pwd)"
+readonly REPOSITORY_ROOT
+
 readonly PACKAGE_LIST="${REPOSITORY_ROOT}/config/apt-packages.txt"
 
 apply=false
