@@ -27,13 +27,16 @@ sign in to any service, or modify editor preferences.
 - GitHub CLI
 - SSH authentication
 
-## Planned Languages
+## Languages
 
 - Python
 - C
 - C++
 - JavaScript / TypeScript
 - Java
+
+Detailed Python development standards are documented in
+[`docs/python.md`](python.md).
 
 ## Planned Infrastructure
 
