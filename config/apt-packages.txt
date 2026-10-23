@@ -22,3 +22,8 @@ fzf
 btop
 fwupd
 flatpak
+
+gnupg
+python3
+rsync
+util-linux

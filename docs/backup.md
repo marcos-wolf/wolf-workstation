@@ -320,4 +320,6 @@ The recovery test should verify that:
 - The workstation configuration is version-controlled and reproducible.
 - Credential backup and personal-data backup are not yet automated.
 - Docker development data is considered regenerable.
-- A complete clean-system recovery test has not yet been performed.
+- Recovery Test #1 completed according to the user report; see [results](recovery-test-1.md).
+
+Encrypted Firefox profile backup and non-overwriting recovery: see [FULL provisioning](provisioning.md).

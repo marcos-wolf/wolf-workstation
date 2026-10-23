@@ -39,7 +39,9 @@ The repository provides reproducible provisioning for the Ubuntu package
 baseline, user-scoped development tools, Docker, Visual Studio Code and
 GitHub CLI, together with documentation, CI validation and user-data backup.
 
-A complete clean-system recovery test remains pending.
+Recovery Test #1 is complete according to the user report; see [results](docs/recovery-test-1.md).
+
+One FULL recovery command: `bash scripts/provision.sh --apply`. Preview with `--dry-run`. A clean-system test of this new orchestrator remains pending.
 
 ## Provisioning
 

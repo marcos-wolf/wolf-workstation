@@ -96,6 +96,11 @@ jobs:
           bash -n scripts/bootstrap-vscode.sh
           ./scripts/bootstrap-vscode.sh
 
+      - name: Preview FULL provisioning
+        run: |
+          bash scripts/provision.sh --dry-run
+          if bash scripts/provision.sh --invalid; then exit 1; fi
+
       - name: Verify Docker documentation
         run: |
           grep -q "Docker" docs/infrastructure/docker.md

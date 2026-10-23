@@ -81,6 +81,15 @@ echo "Installing uv ${UV_VERSION}..."
 UV_NO_MODIFY_PATH=1 sh "${uv_installer}"
 
 echo "Installing runtimes declared in mise/config.toml..."
-"${HOME}/.local/bin/mise" -C "${REPOSITORY_ROOT}" install --yes
+export PATH="${HOME}/.local/bin:$PATH"
+mkdir -p "${HOME}/.config/mise"
+target="${HOME}/.config/mise/config.toml"
+if [[ -e "$target" ]] && ! cmp -s "$target" "${REPOSITORY_ROOT}/mise/config.toml"; then
+  echo "Existing global mise config differs; merge manually: $target" >&2
+  exit 1
+fi
+install -m 644 "${REPOSITORY_ROOT}/mise/config.toml" "$target"
+mise trust "$target"
+mise -C "$HOME" install --yes
 
 echo "User tools bootstrap complete."

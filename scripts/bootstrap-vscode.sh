@@ -61,7 +61,7 @@ echo "Downloading Microsoft's signing key..."
 curl --fail --location --silent --show-error \
   https://packages.microsoft.com/keys/microsoft.asc \
   --output "${key_file}"
-gpg --dearmor --output "${keyring_file}" "${key_file}"
+gpg --batch --yes --dearmor --output "${keyring_file}" "${key_file}"
 
 echo "Configuring the Visual Studio Code APT repository..."
 sudo install -d -m 755 /usr/share/keyrings /etc/apt/sources.list.d

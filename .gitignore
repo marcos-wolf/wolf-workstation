@@ -46,3 +46,8 @@ out/
 
 # Logs
 *.log
+
+# Private browser backups
+*.gpg
+*.tar.gz
+.mozilla/
